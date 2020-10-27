@@ -26,3 +26,16 @@ class Particula:
             'Blue: ' + str(self.__blue) + '\n'+
             'Distancia ' + str(self.distancia) + '\n'
         )
+    
+    def to_dict(self):
+        return {
+            "id": self.__id,
+            "Origen en x": self.__origen_x,
+            "Origen en y": self.__origen_y,
+            "Destino en x": self.__destino_x,
+            "Destino en y": self.__destino_y,
+            "Velocidad": self.__velocidad,
+            "Red": self.__red,
+            "Green": self.__green,
+            "Blue": self.__blue
+        }
