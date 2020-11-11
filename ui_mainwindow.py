@@ -193,6 +193,26 @@ class Ui_MainWindow(object):
         self.gridLayout_2.addWidget(self.pushButton_mostrarTabla, 1, 2, 1, 1)
 
         self.tabWidget.addTab(self.tab_tabla, "")
+        self.tab_particulas = QWidget()
+        self.tab_particulas.setObjectName(u"tab_particulas")
+        self.gridLayout_4 = QGridLayout(self.tab_particulas)
+        self.gridLayout_4.setObjectName(u"gridLayout_4")
+        self.graphicsView = QGraphicsView(self.tab_particulas)
+        self.graphicsView.setObjectName(u"graphicsView")
+
+        self.gridLayout_4.addWidget(self.graphicsView, 0, 0, 1, 2)
+
+        self.pushButton_Dibujar = QPushButton(self.tab_particulas)
+        self.pushButton_Dibujar.setObjectName(u"pushButton_Dibujar")
+
+        self.gridLayout_4.addWidget(self.pushButton_Dibujar, 1, 0, 1, 1)
+
+        self.pushButton_Limpiar = QPushButton(self.tab_particulas)
+        self.pushButton_Limpiar.setObjectName(u"pushButton_Limpiar")
+
+        self.gridLayout_4.addWidget(self.pushButton_Limpiar, 1, 1, 1, 1)
+
+        self.tabWidget.addTab(self.tab_particulas, "")
 
         self.gridLayout_3.addWidget(self.tabWidget, 0, 0, 1, 1)
 
@@ -248,6 +268,9 @@ class Ui_MainWindow(object):
         self.pushButton_Buscar.setText(QCoreApplication.translate("MainWindow", u"Buscar", None))
         self.pushButton_mostrarTabla.setText(QCoreApplication.translate("MainWindow", u"Mostrar", None))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_tabla), QCoreApplication.translate("MainWindow", u"Tabla", None))
+        self.pushButton_Dibujar.setText(QCoreApplication.translate("MainWindow", u"Dibujar", None))
+        self.pushButton_Limpiar.setText(QCoreApplication.translate("MainWindow", u"Limpiar", None))
+        self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_particulas), QCoreApplication.translate("MainWindow", u"Part\u00edculas", None))
         self.menuArchivo.setTitle(QCoreApplication.translate("MainWindow", u"Archivo", None))
     # retranslateUi
 

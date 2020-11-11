@@ -1,4 +1,5 @@
-from PySide2.QtWidgets import QMainWindow, QFileDialog, QMessageBox, QTableWidgetItem
+from PySide2.QtWidgets import QMainWindow, QFileDialog, QMessageBox, QTableWidgetItem, QGraphicsScene
+from PySide2.QtGui import QPen, QColor
 from PySide2.QtCore import Slot
 from ui_mainwindow import Ui_MainWindow
 from particulas import Particula
@@ -18,6 +19,11 @@ class MainWindow(QMainWindow):
         self.ui.actionGuardar.triggered.connect(self.action_guardarArchivo)
         self.ui.pushButton_Buscar.clicked.connect(self.click_buscar)
         self.ui.pushButton_mostrarTabla.clicked.connect(self.click_mostrarTabla)
+        self.ui.pushButton_Dibujar.clicked.connect(self.dibujar)
+        self.ui.pushButton_Limpiar.clicked.connect(self.limpiar)
+
+        self.scene = QGraphicsScene()
+        self.ui.graphicsView.setScene(self.scene)
 
     @Slot()
     def click_mostrar(self):
@@ -140,3 +146,33 @@ class MainWindow(QMainWindow):
         
         if not found:
             QMessageBox.warning(self, 'Atención', f'La particula con el id {id} no fue encontarda')
+    
+    @Slot()
+    def dibujar(self):
+        pen = QPen()
+        pen.setWidth(2)
+
+        for particula in self.admin:
+            origen_x = particula.origen_x
+            origen_y = particula.origen_y
+            destino_x = particula.destino_x
+            destino_y = particula.destino_y
+            r = particula.red
+            g = particula.green
+            b = particula.blue
+            color = QColor(r, g, b)
+            pen.setColor(color)
+
+            self.scene.addEllipse(origen_x, origen_y, 3, 3, pen)
+            self.scene.addEllipse(destino_x, destino_y, 3, 3, pen)
+            self.scene.addLine(origen_x, origen_y, destino_x, destino_y, pen)
+
+    @Slot()
+    def limpiar(self):
+        self.scene.clear()
+    
+    def wheelEvent(self, event):
+        if event.delta() > 0:
+            self.ui.graphicsView.scale(1.2, 1.2)
+        else:
+            self.ui.graphicsView.scale(0.8, 0.8)
