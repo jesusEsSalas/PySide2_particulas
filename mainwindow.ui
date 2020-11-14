@@ -15,7 +15,7 @@
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QGridLayout" name="gridLayout_3">
-    <item row="0" column="0">
+    <item row="1" column="0">
      <widget class="QTabWidget" name="tabWidget">
       <property name="currentIndex">
        <number>0</number>
@@ -198,7 +198,7 @@
         <string>Tabla</string>
        </attribute>
        <layout class="QGridLayout" name="gridLayout_2">
-        <item row="0" column="0" colspan="3">
+        <item row="0" column="0" colspan="6">
          <widget class="QTableWidget" name="table"/>
         </item>
         <item row="1" column="0">
@@ -215,13 +215,34 @@
          </widget>
         </item>
         <item row="1" column="1">
+         <widget class="QPushButton" name="pushButton_OrdenarID">
+          <property name="text">
+           <string>Ordenar por ID</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="2">
+         <widget class="QPushButton" name="pushButton_OrdenarDistancia">
+          <property name="text">
+           <string>Ordenar por distancia</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="3">
+         <widget class="QPushButton" name="pushButton_OrdenarVelocidad">
+          <property name="text">
+           <string>Ordenar por velocidad</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="4">
          <widget class="QPushButton" name="pushButton_Buscar">
           <property name="text">
            <string>Buscar</string>
           </property>
          </widget>
         </item>
-        <item row="1" column="2">
+        <item row="1" column="5">
          <widget class="QPushButton" name="pushButton_mostrarTabla">
           <property name="text">
            <string>Mostrar</string>

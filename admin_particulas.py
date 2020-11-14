@@ -50,3 +50,15 @@ class Administradora():
             return particula
         else:
             raise StopIteration
+    
+    def sort_by_id(self):
+        particulas = self.__particulas
+        particulas.sort(key=lambda particula: particula.id)
+
+    def sort_by_distancia(self):
+        particulas = self.__particulas
+        particulas.sort(key=lambda particula: particula.distancia, reverse=True)
+    
+    def sort_by_velocidad(self):
+        particulas = self.__particulas
+        particulas.sort(key=lambda particula: particula.velocidad)

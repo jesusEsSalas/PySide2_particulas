@@ -2,7 +2,7 @@ from PySide2.QtWidgets import QMainWindow, QFileDialog, QMessageBox, QTableWidge
 from PySide2.QtGui import QPen, QColor
 from PySide2.QtCore import Slot
 from ui_mainwindow import Ui_MainWindow
-from particulas import Particula
+from particulas import Particula as part
 from admin_particulas import Administradora
 
 class MainWindow(QMainWindow):
@@ -21,6 +21,9 @@ class MainWindow(QMainWindow):
         self.ui.pushButton_mostrarTabla.clicked.connect(self.click_mostrarTabla)
         self.ui.pushButton_Dibujar.clicked.connect(self.dibujar)
         self.ui.pushButton_Limpiar.clicked.connect(self.limpiar)
+        self.ui.pushButton_OrdenarID.clicked.connect(self.ordenarID)
+        self.ui.pushButton_OrdenarDistancia.clicked.connect(self.ordenarDistancia)
+        self.ui.pushButton_OrdenarVelocidad.clicked.connect(self.ordenarVelocidad)
 
         self.scene = QGraphicsScene()
         self.ui.graphicsView.setScene(self.scene)
@@ -176,3 +179,18 @@ class MainWindow(QMainWindow):
             self.ui.graphicsView.scale(1.2, 1.2)
         else:
             self.ui.graphicsView.scale(0.8, 0.8)
+
+    @Slot()
+    def ordenarID(self):
+        self.admin.sort_by_id()
+        QMessageBox.information(self, "Éxito", "Se ordenaron las Partículas por ID")
+
+    @Slot()
+    def ordenarDistancia(self):
+        self.admin.sort_by_distancia()
+        QMessageBox.information(self, "Éxito", "Se ordenaron las Partículas por distancia")
+    
+    @Slot()
+    def ordenarVelocidad(self):
+        self.admin.sort_by_velocidad()
+        QMessageBox.information(self, "Éxito", "Se ordenaron las Partículas por velocidad")
