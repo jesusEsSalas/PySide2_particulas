@@ -2,7 +2,7 @@ from PySide2.QtWidgets import QMainWindow, QFileDialog, QMessageBox, QTableWidge
 from PySide2.QtGui import QPen, QColor
 from PySide2.QtCore import Slot
 from ui_mainwindow import Ui_MainWindow
-from particulas import Particula as part
+from particulas import Particula
 from admin_particulas import Administradora
 
 class MainWindow(QMainWindow):
