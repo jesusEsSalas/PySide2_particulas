@@ -24,6 +24,7 @@ class MainWindow(QMainWindow):
         self.ui.pushButton_OrdenarID.clicked.connect(self.ordenarID)
         self.ui.pushButton_OrdenarDistancia.clicked.connect(self.ordenarDistancia)
         self.ui.pushButton_OrdenarVelocidad.clicked.connect(self.ordenarVelocidad)
+        self.ui.actionGrafo.triggered.connect(self.action_MostrarGrafo)
 
         self.scene = QGraphicsScene()
         self.ui.graphicsView.setScene(self.scene)
@@ -194,3 +195,9 @@ class MainWindow(QMainWindow):
     def ordenarVelocidad(self):
         self.admin.sort_by_velocidad()
         QMessageBox.information(self, "Éxito", "Se ordenaron las Partículas por velocidad")
+
+    @Slot()
+    def action_MostrarGrafo(self):
+        self.ui.salida_Particulas.clear()
+        grafo = self.admin.mostrarG()
+        self.ui.salida_Particulas.insertPlainText(grafo)

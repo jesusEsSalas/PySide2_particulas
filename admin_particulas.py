@@ -1,9 +1,11 @@
 from particulas import Particula
 import json
+from pprint import pprint, pformat
 
 class Administradora():
     def __init__(self):
         self.__particulas = []
+        self.__grafo = {}
 
     def agregar_inicio(self, particula: Particula):
         self.__particulas.insert(0, particula)
@@ -62,3 +64,17 @@ class Administradora():
     def sort_by_velocidad(self):
         particulas = self.__particulas
         particulas.sort(key=lambda particula: particula.velocidad)
+
+    def mostrarG(self):
+        grafo = self.__grafo
+        if len(grafo) == 0:
+            for particula in self.__particulas:
+                key = (particula.destino_x, particula.destino_y)
+                value = (particula.origen_x, particula.origen_y, particula.distancia)
+                if key in grafo:
+                    grafo[key].append(value)
+                else:
+                    grafo[key] = [value]
+        pprint(grafo, width=75)
+        string = str(pformat(grafo, width=75, indent=1))
+        return string

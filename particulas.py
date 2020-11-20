@@ -11,7 +11,7 @@ class Particula:
         self.__red = red
         self.__green = green
         self.__blue = blue
-        self.distancia = distancia_euclidiana(origen_x, origen_y, destino_x, destino_y)
+        self.__distancia = distancia_euclidiana(origen_x, origen_y, destino_x, destino_y)
     
     def __str__(self):
         return(
@@ -62,6 +62,10 @@ class Particula:
     @property
     def blue(self):
         return self.__blue
+
+    @property
+    def distancia(self):
+        return self.__distancia
 
     def to_dict(self):
         return {

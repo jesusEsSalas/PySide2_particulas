@@ -296,7 +296,14 @@
     <addaction name="actionGuardar"/>
     <addaction name="actionAbrir"/>
    </widget>
+   <widget class="QMenu" name="menuVer">
+    <property name="title">
+     <string>Ver</string>
+    </property>
+    <addaction name="actionGrafo"/>
+   </widget>
    <addaction name="menuArchivo"/>
+   <addaction name="menuVer"/>
   </widget>
   <action name="actionGuardar">
    <property name="text">
@@ -312,6 +319,14 @@
    </property>
    <property name="shortcut">
     <string>Ctrl+O</string>
+   </property>
+  </action>
+  <action name="actionGrafo">
+   <property name="text">
+    <string>Grafo</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+G</string>
    </property>
   </action>
  </widget>
