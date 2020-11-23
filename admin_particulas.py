@@ -71,8 +71,8 @@ class Administradora():
             for particula in self.__particulas:
                 key_origen = (particula.origen_x, particula.origen_y)
                 key_destino = (particula.destino_x, particula.destino_y)
-                value_origen = (particula.destino_x, particula.destino_y, particula.distancia)
-                value_destino = (particula.origen_x, particula.origen_y, particula.distancia)
+                value_origen = ((particula.destino_x, particula.destino_y), particula.distancia)
+                value_destino = ((particula.origen_x, particula.origen_y), particula.distancia)
                 if key_origen in grafo:
                     grafo[key_origen].append(value_origen)
                 else:
