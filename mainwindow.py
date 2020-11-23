@@ -95,7 +95,7 @@ class MainWindow(QMainWindow):
             origen_y_widget = QTableWidgetItem(str(particula.origen_y))
             destino_x_widget = QTableWidgetItem(str(particula.destino_x))
             destino_y_widget = QTableWidgetItem(str(particula.destino_y))
-            velocidad_widget = QTableWidgetItem(particula.velocidad)
+            velocidad_widget = QTableWidgetItem(str(particula.velocidad))
             red_widget = QTableWidgetItem(str(particula.red))
             green_widget = QTableWidgetItem(str(particula.green))
             blue_widget = QTableWidgetItem(str(particula.blue))

@@ -69,12 +69,18 @@ class Administradora():
         grafo = self.__grafo
         if len(grafo) == 0:
             for particula in self.__particulas:
-                key = (particula.destino_x, particula.destino_y)
-                value = (particula.origen_x, particula.origen_y, particula.distancia)
-                if key in grafo:
-                    grafo[key].append(value)
+                key_origen = (particula.origen_x, particula.origen_y)
+                key_destino = (particula.destino_x, particula.destino_y)
+                value_origen = (particula.destino_x, particula.destino_y, particula.distancia)
+                value_destino = (particula.origen_x, particula.origen_y, particula.distancia)
+                if key_origen in grafo:
+                    grafo[key_origen].append(value_origen)
                 else:
-                    grafo[key] = [value]
+                    grafo[key_origen] = [value_origen]
+                if key_destino in grafo:
+                    grafo[key_destino].append(value_destino)
+                else:
+                    grafo[key_destino] = [value_destino]
         pprint(grafo, width=75)
         string = str(pformat(grafo, width=75, indent=1))
         return string
