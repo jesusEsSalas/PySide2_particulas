@@ -209,7 +209,7 @@ class MainWindow(QMainWindow):
         origen_y = self.ui.spinBox_origenY.value()
         origen = (origen_x, origen_y)
         if self.admin.busqueda_profundidad(origen_x, origen_y) and self.admin.busqueda_Amplitud(origen_x, origen_y):
-            print("Origen: ", origen)
+            print("\nOrigen: ", origen)
             print("\nBusqueda de profundidad")
             self.admin.busqueda_profundidad(origen_x, origen_y)
             print("\nBusqueda de amplitud")

@@ -103,7 +103,7 @@ class Administradora():
                     if key not in vectorVisitados:
                         vectorVisitados.append(key)
                         pila.append(key)
-            pprint(vectorRecorrido, width=75)
+            pprint(vectorRecorrido)
             return 1
         else:          
             return 0
@@ -126,7 +126,7 @@ class Administradora():
                     if key not in vectorVisitados:
                         vectorVisitados.append(key)
                         cola.append(key)
-            print(vectorRecorrido)
+            pprint(vectorRecorrido)
             return 1
         else:
             return 0
