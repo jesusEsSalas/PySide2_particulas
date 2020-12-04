@@ -91,6 +91,7 @@ class Administradora():
         vectorVisitados = []
         vectorRecorrido = []
         pila = []
+        string = ' '
         if grafo:
             vectorVisitados.append(origen)
             pila.append(origen)
@@ -103,8 +104,9 @@ class Administradora():
                     if key not in vectorVisitados:
                         vectorVisitados.append(key)
                         pila.append(key)
-            pprint(vectorRecorrido)
-            return 1
+            string = str(pformat(vectorRecorrido, width=13, indent=1))
+            #pprint(vectorRecorrido)
+            return string
         else:          
             return 0
 
@@ -114,6 +116,7 @@ class Administradora():
         vectorVisitados = []
         vectorRecorrido = []
         cola = []
+        string = ' '
         if grafo:
             vectorVisitados.append(origen)
             cola.append(origen)
@@ -126,7 +129,8 @@ class Administradora():
                     if key not in vectorVisitados:
                         vectorVisitados.append(key)
                         cola.append(key)
-            pprint(vectorRecorrido)
-            return 1
+            string = str(pformat(vectorRecorrido, width=13, indent=1))
+            #pprint(vectorRecorrido)
+            return string
         else:
             return 0

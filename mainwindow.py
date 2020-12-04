@@ -208,11 +208,13 @@ class MainWindow(QMainWindow):
         origen_x = self.ui.spinBox_origenX.value()
         origen_y = self.ui.spinBox_origenY.value()
         origen = (origen_x, origen_y)
-        if self.admin.busqueda_profundidad(origen_x, origen_y) and self.admin.busqueda_Amplitud(origen_x, origen_y):
+        profundidad = self.admin.busqueda_profundidad(origen_x, origen_y)
+        amplitud = self.admin.busqueda_Amplitud(origen_x, origen_y)
+        if profundidad and amplitud:
             print("\nOrigen: ", origen)
             print("\nBusqueda de profundidad")
-            self.admin.busqueda_profundidad(origen_x, origen_y)
+            print(profundidad)
             print("\nBusqueda de amplitud")
-            self.admin.busqueda_Amplitud(origen_x, origen_y)
+            print(amplitud)
         else:
             QMessageBox.information(self, "Ojo", "No se pudieron leer los datos")
