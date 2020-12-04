@@ -25,6 +25,7 @@ class MainWindow(QMainWindow):
         self.ui.pushButton_OrdenarDistancia.clicked.connect(self.ordenarDistancia)
         self.ui.pushButton_OrdenarVelocidad.clicked.connect(self.ordenarVelocidad)
         self.ui.actionGrafo.triggered.connect(self.action_MostrarGrafo)
+        self.ui.actionRecorrido_en_Profundidad_Amplitud.triggered.connect(self.action_Busquedas)
 
         self.scene = QGraphicsScene()
         self.ui.graphicsView.setScene(self.scene)
@@ -201,3 +202,17 @@ class MainWindow(QMainWindow):
         self.ui.salida_Particulas.clear()
         grafo = self.admin.mostrarG()
         self.ui.salida_Particulas.insertPlainText(grafo)
+
+    @Slot()
+    def action_Busquedas(self):
+        origen_x = self.ui.spinBox_origenX.value()
+        origen_y = self.ui.spinBox_origenY.value()
+        origen = (origen_x, origen_y)
+        if self.admin.busqueda_profundidad(origen_x, origen_y) and self.admin.busqueda_Amplitud(origen_x, origen_y):
+            print("Origen: ", origen)
+            print("\nBusqueda de profundidad")
+            self.admin.busqueda_profundidad(origen_x, origen_y)
+            print("\nBusqueda de amplitud")
+            self.admin.busqueda_Amplitud(origen_x, origen_y)
+        else:
+            QMessageBox.information(self, "Ojo", "No se pudieron leer los datos")

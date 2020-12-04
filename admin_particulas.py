@@ -84,3 +84,49 @@ class Administradora():
         pprint(grafo, width=75)
         string = str(pformat(grafo, width=75, indent=1))
         return string
+
+    def busqueda_profundidad(self, origen_x, origen_y):
+        grafo = self.__grafo
+        origen = (origen_x, origen_y)
+        vectorVisitados = []
+        vectorRecorrido = []
+        pila = []
+        if grafo:
+            vectorVisitados.append(origen)
+            pila.append(origen)
+
+            while pila:
+                vertice = pila[-1]
+                vectorRecorrido.append(vertice)
+                pila.pop()
+                for key, value in grafo[vertice]:
+                    if key not in vectorVisitados:
+                        vectorVisitados.append(key)
+                        pila.append(key)
+            pprint(vectorRecorrido, width=75)
+            return 1
+        else:          
+            return 0
+
+    def busqueda_Amplitud(self, origen_x, origen_y):
+        grafo = self.__grafo
+        origen = (origen_x, origen_y)
+        vectorVisitados = []
+        vectorRecorrido = []
+        cola = []
+        if grafo:
+            vectorVisitados.append(origen)
+            cola.append(origen)
+
+            while cola:
+                vertice = cola[0]
+                vectorRecorrido.append(vertice)
+                cola.pop(0)
+                for key, value in grafo[vertice]:
+                    if key not in vectorVisitados:
+                        vectorVisitados.append(key)
+                        cola.append(key)
+            print(vectorRecorrido)
+            return 1
+        else:
+            return 0
